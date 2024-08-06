@@ -3,7 +3,7 @@ import { authOptions } from "../auth/[...nextauth]/options";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import { User } from "next-auth";
-import { log } from "console";
+
 
 export async function POST(request: Request) {
   await dbConnect();
@@ -76,4 +76,33 @@ export async function GET(request: Request) {
     );
   }
   const userId = user._id;
+
+  try {
+    const foundUser = await UserModel.findById(userId) 
+  if (!foundUser) {
+    return Response.json(
+      {
+        success: false,
+        message: "User not found",
+      },
+      { status:404 }
+    );
+  }
+  return Response.json(
+    {
+      success: true,
+      isAcceptingMessage: foundUser.isAcceptingMessage,
+    },
+    { status: 200 }
+  ); 
+  } catch (error) {
+    console.log("failed to update user status to acccept messages");
+    return Response.json(
+      {
+        success: false,
+        message: "Error is getting message acceptance status"
+      },
+      { status:500 }
+    );
+  }
 }
