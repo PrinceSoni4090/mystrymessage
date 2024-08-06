@@ -8,7 +8,8 @@ const UsernameQuerySchema = z.object({
 });
 
 export async function GET(request: Request) {
-  await dbConnect();
+    
+    await dbConnect();
 
   try {
     const {searchParams} = new URL(request.url)
@@ -32,12 +33,12 @@ export async function GET(request: Request) {
     const existingVerifiedUser = await UserModel.findOne({username, isVerified: true})
     if (existingVerifiedUser) {
         return Response.json({
-            uccess : false,
+            success : false,
             message: "Username is already taken "
         }, {status:400})
     }
     return Response.json({
-        uccess : true,
+        success : true,
         message: "Username is available"
     }, {status:400})
 
