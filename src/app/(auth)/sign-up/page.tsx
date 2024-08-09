@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useDebounceValue, useDebounceCallback } from "usehooks-ts";
+import { useDebounceCallback } from "usehooks-ts";  
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { signUpSchema } from "@/schemas/signUpSchema";
@@ -21,7 +21,7 @@ const page = () => {
   const [isCheckingUsername, setIsCheckingUsername] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const debounced = useDebounceCallback(setUsername, 500);
+  const debounced = useDebounceCallback(setUsername, 300);
   const { toast } = useToast();
   const router = useRouter();
 
@@ -42,9 +42,10 @@ const page = () => {
         setUsername("");
         try {
           const response = await axios.get(
-            `/api/check-username-unique?username=${username}`
-          );
-          setUsernameMessage(response.data.message);
+            `/api/check-username-unique?username=${username}`)
+            console.log(response.data.message)
+           let message = response.data.message
+          setUsernameMessage(message);
         } catch (error) {
           const AxiosError = error as AxiosError<ApiResponse>;
           setUsernameMessage(
@@ -107,7 +108,7 @@ const page = () => {
                     />
                   </FormControl>
                     {isCheckingUsername && <Loader2 className="animate-spin"/>}
-                    <p className = {`text`} >
+                    <p className = {`text-sm ${usernameMessage === "Username is unique" ? 'text-green-500' : 'text-red-500' } `} >
                         test {usernameMessage}
                     </p>
                   <FormMessage />
