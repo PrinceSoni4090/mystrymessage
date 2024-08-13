@@ -23,11 +23,12 @@ export async function POST(request: Request) {
     }
     const existingUserByEmail = await UserModel.findOne({ email });
 
-    const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
+    let verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
 
     if (existingUserByEmail) {
       if (existingUserByEmail.isVerified) {
-        return Response.json({
+        return Response.json(
+          {
             success: false,
             message: "User already exist with this email"
         },{status: 400})
