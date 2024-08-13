@@ -51,7 +51,7 @@ const Page = () => {
       setIsSwitchLoading(false)
     }
 
-  }, [setValue])
+  }, [setValue,toast])
 
   const fetchMessages = useCallback(async (refresh:boolean = false) => {
     setIsLoading(true)
@@ -78,7 +78,7 @@ const Page = () => {
       setIsLoading(false)
       setIsSwitchLoading(false)
     }
-  }, [setIsLoading,setMessages]) 
+  }, [setIsLoading,setMessages,toast]) 
 
     useEffect (() => {
       if(!session || !session.user) return  
