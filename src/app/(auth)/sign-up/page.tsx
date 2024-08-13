@@ -193,6 +193,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import { signIn } from "next-auth/react";  
+import GoogleButton from 'react-google-button'
 
 const Page = () => {
   const [username, setUsername] = useState("");
@@ -246,7 +248,7 @@ const Page = () => {
         description: response.data.message,
       });
 
-      const { username } = data; // Make sure this extracts the correct value
+      const { username } = data;
       if (username) {
         router.replace(`/verify/${username}`);
       } else {
@@ -268,7 +270,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-800">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
@@ -340,6 +342,18 @@ const Page = () => {
             </Button>
           </form>
         </Form>
+
+        {/* Add Google Sign-In Button */}
+        <div className="text-center mt-4">
+          <GoogleButton
+            onClick={() => signIn('google')}
+            // variant="outline"
+            className="w-full bg-blue-600 text-white hover:bg-blue-800"
+          >
+            Sign Up with Google
+          </GoogleButton>
+        </div>
+
         <div className="text-center mt-4">
           <p>
             Already a member?{' '}
