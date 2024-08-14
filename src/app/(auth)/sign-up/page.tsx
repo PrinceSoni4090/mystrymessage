@@ -270,11 +270,11 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-800">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-black">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Welcome to True Feedback
+            Welcome to Mystery Mail
           </h1>
           <p className="mb-4">Sign up to continue your secret conversations</p>
         </div>
