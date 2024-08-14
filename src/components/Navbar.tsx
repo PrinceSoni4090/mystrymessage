@@ -12,23 +12,32 @@ const Navbar = () => {
     const user: User = session?.user as User
 
   return (
-    <nav  className="p-4 md:p-6 shadow-md bg-gray-900 text-white">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <a href="#" className="text-xl font-bold mb-4 md:mb-0">Mystry Message </a>
-            {
-                session ? (
-                   <>
-                    <span className='mr-4'>Welcome {user?.username || user?.email}</span>
-                    <Button className='w-full md:w-auto' onClick={() => signOut()}>Logout</Button>
-                   </>
-                ) : (
-                    <Link href='/sign-in'>
-                        <Button className='w-full md:w-auto'>Login</Button>
-                    </Link>
-                )
-            }
-        </div>
-    </nav>
+    <nav className="p-10 md:p-6 shadow-md bg-black text-white">
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                <div className="flex items-center mb-4 md:mb-0">
+                    <a href="#" className="text-xl font-bold"> Mystery Mail </a>
+                </div>
+                <div className="flex items-center gap-4">
+                    {
+                        session ? (
+                            <>
+                                <span className='mr-4'>Welcome {user?.username || user?.email}</span>
+                                <Button className='w-full md:w-auto' onClick={() => signOut()}>Logout</Button>
+                            </>
+                        ) : (
+                            <>
+                                <Link href='/sign-in'>
+                                    <Button className='w-full  bg-black hover:bg-gray-800 rounded-2xl md:w-auto'>Sign In</Button>
+                                </Link>
+                                <Link href='/sign-up'>
+                                    <Button className='w-full bg-black hover:bg-gray-800 rounded-2xl md:w-auto'>Sign up</Button>
+                                </Link>
+                            </>
+                        )
+                    }
+                </div>
+            </div>
+        </nav>
   )
 }
 
