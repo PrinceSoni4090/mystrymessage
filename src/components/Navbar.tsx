@@ -12,7 +12,7 @@ const Navbar = () => {
     const user: User = session?.user as User
 
   return (
-    <nav className="p-2 md:p-6  shadow-md bg-black text-white">
+    <nav className="p-3 md:p-7  shadow-md bg-black text-white">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="flex items-center mb-4 md:mb-0">
                     <a href="#" className="text-2xl font-bold"> Mystery Mail </a>
