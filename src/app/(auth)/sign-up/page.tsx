@@ -343,16 +343,8 @@ const Page = () => {
           </form>
         </Form>
 
-        {/* Add Google Sign-In Button */}
-        <div className="text-center mt-4">
-          <GoogleButton
-            onClick={() => signIn('google')}
-            // variant="outline"
-            className="w-full bg-blue-600 text-white hover:bg-blue-800"
-          >
-            Sign Up with Google
-          </GoogleButton>
-        </div>
+        
+        
 
         <div className="text-center mt-4">
           <p>

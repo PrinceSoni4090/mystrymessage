@@ -124,6 +124,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/components/ui/use-toast';
 import { signInSchema } from '@/schemas/signInSchema';
+import GoogleButton from 'react-google-button';
 
 export default function SignInForm() {
   const router = useRouter();
@@ -201,6 +202,18 @@ export default function SignInForm() {
             <Button className='w-full' type="submit">Sign In</Button>
           </form>
         </Form>
+
+        <div className="text-center mt-4 flex justify-center">
+          <GoogleButton
+            onClick={() => signIn('google')}
+            // variant="outline"
+            className=" w-full bg-blue-600 text-white hover:bg-blue-800"
+          >
+            Sign Up with Google
+          </GoogleButton>
+        </div>
+
+
         <div className="text-center mt-4">
           <p>
             Not a member yet?{' '}
@@ -209,6 +222,7 @@ export default function SignInForm() {
             </Link>
           </p>
         </div>
+        
       </div>
     </div>
   );
