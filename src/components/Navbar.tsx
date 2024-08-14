@@ -27,10 +27,10 @@ const Navbar = () => {
                         ) : (
                             <>
                                 <Link href='/sign-in'>
-                                    <Button className='w-full  bg-black md:bg-gray-900 hover:bg-gray-800 rounded-2xl md:w-auto'>Sign In</Button>
+                                    <Button className='w-full  bg-gray-900 hover:bg-gray-700 rounded-2xl md:w-auto'>Sign In</Button>
                                 </Link>
                                 <Link href='/sign-up'>
-                                    <Button className='w-full bg-black md:bg-gray-900 hover:bg-gray-800 rounded-2xl md:w-auto'>Sign up</Button>
+                                    <Button className='w-full bg-gray-900 hover:bg-gray-700 rounded-2xl md:w-auto'>Sign up</Button>
                                 </Link>
                             </>
                         )
