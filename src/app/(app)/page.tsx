@@ -82,7 +82,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen"> {/* This div will ensure the entire viewport is covered */}
       {/* Main content */}
-      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-gray-800 text-white">
+      <main className="flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-black text-white">
         <section className="text-center mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-bold">
             Dive into the World of Anonymous Feedback
