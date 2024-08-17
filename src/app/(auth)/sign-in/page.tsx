@@ -174,6 +174,9 @@ export default function SignInForm() {
             Welcome Back to Mystery Mail
           </h1>
           <p className="mb-4">Sign in to continue your secret conversations</p>
+          <p className="mb-1 font-bold">Demo Credentials - </p>
+          <p className="font-semibold">Username - user1 </p>
+          <p className="font-semibold">Password - user12345 </p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
